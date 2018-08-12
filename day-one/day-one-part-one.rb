@@ -12,20 +12,32 @@
 # of characters to an array of integers, and then I sum the integers.
 
 
-def day_one(input)
+def day_one_part_one(input)
   n = input.strip.split('')
-  b = input.split('')
-  n << n.first
+
+
+  # ------- SOL 1 ------
+  # puts "n is #{n}"
+  # puts "n.rotate(1) is #{n.rotate(1)}"
+  # puts "n.zip(n.rotate(1)) is #{n.zip(n.rotate(1))}"
+  puts n.zip(n.rotate(1))
+    .select { |x, y| x == y }
+    .map(&:first)
+    .map(&:to_i)
+    .inject(:+)
+  # ------- SOL 2 ------
   # puts "n.each_cons(2).to_a is #{n.each_cons(2).to_a}"
   # puts "n.each_cons(2).to_a.select { |x, y| x == y } is #{n.each_cons(2).to_a.select { |x, y| x == y }}"
   # puts "n.each_cons(2).to_a.select { |x, y| x == y }.map(&:first) is #{n.each_cons(2).to_a.select { |x, y| x == y }.map(&:first)}"
   # puts "n.each_cons(2).to_a.select { |x, y| x == y }.map(&:first).map(&:to_i) is #{n.each_cons(2).to_a.select { |x, y| x == y }.map(&:first).map(&:to_i)}"
-   puts n.each_cons(2).to_a
-     .select { |x, y| x == y }
-     .map(&:first)
-     .map(&:to_i)
-     .inject(:+)
+  # n << n.first
+  # puts n.each_cons(2).to_a
+  #   .select { |x, y| x == y }
+  #   .map(&:first)
+  #   .map(&:to_i)
+  #   .inject(:+)
   #
+  # ------- SOL 3 ------
   # sum = 0
   # digits = input.strip.split('')
   # digits.each_index do |i|
@@ -43,7 +55,7 @@ end
 input_file_path = File.expand_path("../captcha.txt", __FILE__)
 f = File.read(input_file_path)
 
-puts day_one(f)
+puts day_one_part_one(f)
 
 
 

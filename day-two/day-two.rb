@@ -1,5 +1,0 @@
-def dayTwo(input)
-
-end
-
-

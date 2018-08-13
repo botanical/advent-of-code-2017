@@ -1,0 +1,5 @@
+def dayTwo(input)
+
+end
+
+
